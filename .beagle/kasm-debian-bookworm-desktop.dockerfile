@@ -23,7 +23,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
                 /ubuntu/install/chrome/install_chrome.sh \
                 /ubuntu/install/chromium/install_chromium.sh \
                 /ubuntu/install/sublime_text/install_sublime_text.sh \
-                /ubuntu/install/vs_kasm-user/install_vs_kasm-user.sh \
+                /ubuntu/install/vs_code/install_vs_code.sh \
                 /ubuntu/install/remmina/install_remmina.sh \
                 /ubuntu/install/only_office/install_only_office.sh \
                 /ubuntu/install/signal/install_signal.sh \
