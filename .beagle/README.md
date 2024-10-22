@@ -46,7 +46,7 @@ docker push registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-1.
 
 ```bash
 docker build \
-  --build-arg BASE=registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-1.16.0-amd64 \
+  --build-arg BASE=registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-v1.16.0-amd64 \
   --build-arg AUTHOR=mengkzhaoyun@gmail.com \
   --build-arg VERSION=1.16.0 \
   --build-arg TARGETOS=linux \

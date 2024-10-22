@@ -41,7 +41,7 @@ COPY etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.source
 
 # fix noVNC bug
 RUN sed -i "s/UI\.initSetting('path', 'websockify');/UI.initSetting('path', (window.location.pathname \+ 'websockify').substring\(1\));/g" /usr/share/kasmvnc/www/dist/main.bundle.js && \
-  echo "kasm-user ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+  echo "code ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 
 # Run installations
 RUN \
@@ -51,12 +51,12 @@ RUN \
   $STARTUPDIR/set_user_permission.sh $HOME && \
   rm -f /etc/X11/xinit/Xclients && \
   chown 1000:0 $HOME && \
-  mkdir -p /home/kasm-user && \
-  chown -R 1000:0 /home/kasm-user && \
+  mkdir -p /home/code && \
+  chown -R 1000:0 /home/code && \
   rm -Rf ${INST_DIR}
 
 # Userspace Runtime
-ENV HOME /home/kasm-user
+ENV HOME /home/code
 WORKDIR $HOME
 USER 1000
 
