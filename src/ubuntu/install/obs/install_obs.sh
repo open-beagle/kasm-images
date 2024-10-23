@@ -23,6 +23,6 @@ fi
 cp /usr/share/applications/com.obsproject.Studio.desktop $HOME/Desktop/
 chmod +x $HOME/Desktop/com.obsproject.Studio.desktop
 
-wget https://github.com/CatxFish/obs-v4l2sink/releases/download/0.1.0/obs-v4l2sink.deb
+curl -x socks5://www.ali.wodcloud.com:1283 -sfL https://github.com/CatxFish/obs-v4l2sink/releases/download/0.1.0/obs-v4l2sink.deb > ./obs-v4l2sink.deb
 apt-get install ./obs-v4l2sink.deb
 rm -f obs-v4l2sink.deb

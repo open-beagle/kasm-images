@@ -40,9 +40,9 @@ elif [ "${DISTRO}" == "opensuse" ]; then
 else
   apt-get update
   if [ ! -z "${CHROME_VERSION}" ]; then
-    wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb -O chrome.deb
+    curl -x socks5://www.ali.wodcloud.com:1283 -sfL https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb > chrome.deb
   else
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
+    curl -x socks5://www.ali.wodcloud.com:1283 -sfL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb > chrome.deb
   fi
   apt-get install -y ./chrome.deb
   rm chrome.deb

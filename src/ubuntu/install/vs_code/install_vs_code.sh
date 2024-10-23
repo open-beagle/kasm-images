@@ -9,7 +9,7 @@ apt-get install -y ./vs_code.deb
 
 # Desktop icon
 mkdir -p /usr/share/icons/hicolor/apps
-wget -O /usr/share/icons/hicolor/apps/vscode.svg https://kasm-static-content.s3.amazonaws.com/icons/vscode.svg
+curl -x socks5://www.ali.wodcloud.com:1283 -sfL https://kasm-static-content.s3.amazonaws.com/icons/vscode.svg > /usr/share/icons/hicolor/apps/vscode.svg 
 sed -i '/Icon=/c\Icon=/usr/share/icons/hicolor/apps/vscode.svg' /usr/share/applications/code.desktop
 sed -i 's#/usr/share/code/code#/usr/share/code/code --no-sandbox##' /usr/share/applications/code.desktop
 cp /usr/share/applications/code.desktop $HOME/Desktop
