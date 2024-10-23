@@ -36,12 +36,12 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Copy install scripts
 COPY ./src/ $INST_DIR
 
-# china mirror
-COPY etc/apt/sources.list.d/debian.sources /etc/apt/sources.list.d/debian.sources
+# Copy logo svc
+COPY ./www/dist/images/windvnc.svg /usr/share/kasmvnc/www/dist/3e59b876df5d900e0b2b4a945a71f20d.svg
 
-# fix noVNC bug
-RUN sed -i "s/UI\.initSetting('path', 'websockify');/UI.initSetting('path', (window.location.pathname \+ 'websockify').substring\(1\));/g" /usr/share/kasmvnc/www/dist/main.bundle.js && \
-  echo "code ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+# # fix noVNC bug
+# RUN sed -i "s/UI\.initSetting('path', 'websockify');/UI.initSetting('path', (window.location.pathname \+ 'websockify').substring\(1\));/g" /usr/share/kasmvnc/www/dist/main.bundle.js && \
+#   echo "code ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 
 # Run installations
 RUN \
