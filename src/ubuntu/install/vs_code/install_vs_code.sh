@@ -3,13 +3,13 @@ set -ex
 
 # Install vsCode
 ARCH=$(arch | sed 's/aarch64/arm64/g' | sed 's/x86_64/x64/g')
-wget -q https://update.code.visualstudio.com/latest/linux-deb-${ARCH}/stable -O vs_code.deb
+curl -x socks5://www.ali.wodcloud.com:1283 -fL -o vs_code.deb https://update.code.visualstudio.com/latest/linux-deb-${ARCH}/stable
 apt-get update
 apt-get install -y ./vs_code.deb
 
 # Desktop icon
 mkdir -p /usr/share/icons/hicolor/apps
-curl -x socks5://www.ali.wodcloud.com:1283 -sfL https://kasm-static-content.s3.amazonaws.com/icons/vscode.svg > /usr/share/icons/hicolor/apps/vscode.svg 
+curl -x socks5://www.ali.wodcloud.com:1283 -fL https://kasm-static-content.s3.amazonaws.com/icons/vscode.svg >/usr/share/icons/hicolor/apps/vscode.svg
 sed -i '/Icon=/c\Icon=/usr/share/icons/hicolor/apps/vscode.svg' /usr/share/applications/code.desktop
 sed -i 's#/usr/share/code/code#/usr/share/code/code --no-sandbox##' /usr/share/applications/code.desktop
 cp /usr/share/applications/code.desktop $HOME/Desktop
@@ -20,8 +20,8 @@ rm vs_code.deb
 # Conveniences for python development
 apt-get update
 apt-get install -y python3-setuptools \
-                   python3-venv \
-                   python3-virtualenv
+  python3-venv \
+  python3-virtualenv
 
 # Cleanup for app layer
 chown -R 1000:0 $HOME
