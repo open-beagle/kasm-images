@@ -45,12 +45,14 @@ docker push registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-1.
 ## build
 
 ```bash
+docker pull registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-v1.16.0-amd64 && \
 docker build \
   --build-arg BASE=registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-v1.16.0-amd64 \
   --build-arg AUTHOR=mengkzhaoyun@gmail.com \
   --build-arg VERSION=1.16.0 \
   --build-arg TARGETOS=linux \
   --build-arg TARGETARCH=amd64 \
+  --build-arg SOCKS5_PROXY=${LOCAL_SOCKS5_PROXY} \
   -t registry.cn-qingdao.aliyuncs.com/wod/kasmweb:debian-bookworm-desktop-v1.16.0-amd64 \
   -f .beagle/kasm-debian-bookworm-desktop.dockerfile \
   .
@@ -67,8 +69,8 @@ docker run -it --rm \
   -v $PWD:/go/src/github.com/open-beagle/kasm-images \
   -w /go/src/github.com/open-beagle/kasm-images \
   --entrypoint=/bin/bash \
+  -e SOCKS5_PROXY=${LOCAL_SOCKS5_PROXY} \
   registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-v1.16.0-amd64
-
 sudo bash .beagle/build.sh
 ```
 
