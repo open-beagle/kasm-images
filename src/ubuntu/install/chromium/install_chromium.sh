@@ -39,9 +39,9 @@ else
   # This will work until 18.04 goes to an unsupported status.
   if [ ${ARCH} = 'amd64' ] ;
   then
-    chrome_url="http://archive.ubuntu.com/ubuntu/pool/universe/c/chromium-browser/"
+    chrome_url="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/pool/universe/c/chromium-browser/"
   else
-    chrome_url="http://ports.ubuntu.com/pool/universe/c/chromium-browser/"
+    chrome_url="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports//pool/universe/c/chromium-browser/"
   fi
 
   chromium_codecs_data=$(curl ${chrome_url})
