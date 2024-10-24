@@ -7,7 +7,7 @@ if [ "$ARCH" == "arm64" ] ; then
   echo "Only Office is not supported on arm64, skipping Only Office installation"
   exit 0
 fi
-curl -L -o /tmp/only_office.deb "https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_${ARCH}.deb"
+curl -x socks5://www.ali.wodcloud.com:1283 -fL -o /tmp/only_office.deb "https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_${ARCH}.deb"
 apt-get update
 apt-get install -y /tmp/only_office.deb
 rm -rf /tmp/only_office.deb

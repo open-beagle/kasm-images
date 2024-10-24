@@ -60,6 +60,16 @@ docker run -it --rm \
   -w /go/src/github.com/open-beagle/kasm-images \
   --entrypoint=/bin/bash \
   registry.cn-qingdao.aliyuncs.com/wod/kasmweb:debian-bookworm-desktop-v1.16.0-amd64
+
+cp -r /usr/share/kasmvnc/www/app/images/icons/ /go/src/github.com/open-beagle/kasm-images/www/app/images/icons/
+
+docker run -it --rm \
+  -v $PWD:/go/src/github.com/open-beagle/kasm-images \
+  -w /go/src/github.com/open-beagle/kasm-images \
+  --entrypoint=/bin/bash \
+  registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-v1.16.0-amd64
+
+sudo bash .beagle/build.sh
 ```
 
 ## cache
