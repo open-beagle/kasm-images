@@ -40,9 +40,8 @@ COPY ./www/dist/images/windvnc.svg /usr/share/kasmvnc/www/dist/images/3e59b876df
 COPY ./www/index.html /usr/share/kasmvnc/www/index.html
 COPY ./www/app/images/icons/* /usr/share/kasmvnc/www/app/images/icons/
 
-# # fix noVNC bug
-# RUN sed -i "s/UI\.initSetting('path', 'websockify');/UI.initSetting('path', (window.location.pathname \+ 'websockify').substring\(1\));/g" /usr/share/kasmvnc/www/dist/main.bundle.js && \
-#   echo "code ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+# fix noVNC bug
+RUN sed -i 's/var PAGE_TITLE = "KasmVNC";/var PAGE_TITLE = "WindVNC";/g' /usr/share/kasmvnc/www/dist/main.bundle.js
 
 # Run installations
 RUN \
