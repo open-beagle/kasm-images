@@ -39,6 +39,7 @@ COPY ./src/ $INST_DIR
 COPY ./www/dist/images/windvnc.svg /usr/share/kasmvnc/www/dist/images/3e59b876df5d900e0b2b4a945a71f20d.svg
 COPY ./www/index.html /usr/share/kasmvnc/www/index.html
 COPY ./www/app/images/icons/* /usr/share/kasmvnc/www/app/images/icons/
+COPY ./src/common/resources/images/bg_beagle.svg  /usr/share/backgrounds/bg_default.png
 
 # fix noVNC bug
 RUN sed -i 's/var PAGE_TITLE = "KasmVNC";/var PAGE_TITLE = "WindVNC";/g' /usr/share/kasmvnc/www/dist/main.bundle.js
