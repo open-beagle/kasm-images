@@ -20,7 +20,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
   INST_DIR=$STARTUPDIR/install \
   INST_SCRIPTS="/ubuntu/install/tools/install_tools_deluxe.sh \
   /ubuntu/install/misc/install_tools.sh \
-  /ubuntu/install/chrome/install_chrome.sh \
+  /ubuntu/install/chromium/install_chromium.sh \
   /ubuntu/install/sublime_text/install_sublime_text.sh \
   /ubuntu/install/vs_code/install_vs_code.sh \
   /ubuntu/install/remmina/install_remmina.sh \
