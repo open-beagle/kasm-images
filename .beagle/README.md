@@ -15,6 +15,9 @@ git merge upstream/release/1.16.0
 
 <https://kasmweb.com/docs/latest/guide/custom_images.html?utm_campaign=Github&utm_source=github>
 
+如何开启GPU加速
+<!-- https://kasmweb.com/docs/latest/how_to/gpu.html -->
+
 ```bash
 # kasmweb/debian-bookworm-desktop:1.16.0
 docker pull kasmweb/debian-bookworm-desktop:1.16.0 && \

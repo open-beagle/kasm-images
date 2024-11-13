@@ -19,6 +19,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
   DONT_PROMPT_WSL_INSTALL="No_Prompt_please" \
   INST_DIR=$STARTUPDIR/install \
   INST_SCRIPTS="/ubuntu/install/tools/install_tools_deluxe.sh \
+  /ubuntu/install/tools/install_tools_nvidia.sh \
   /ubuntu/install/misc/install_tools.sh \
   /ubuntu/install/chrome/install_chrome.sh \
   /ubuntu/install/chromium/install_chromium.sh \
