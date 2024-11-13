@@ -41,7 +41,7 @@ steps:
       - name: docker
         path: /var/run/docker.sock
     settings:
-      dockerfile: .beagle/kasm-debian-bookworm-desktop.dockerfile
+      dockerfile: .beagle/kasm-debian-bookworm-desktop-nvidia.dockerfile
       base: registry-vpc.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-v1.16.0-amd64
       repo: wod/kasmweb
       version: debian-bookworm-desktop-v1.16.0
