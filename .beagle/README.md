@@ -19,6 +19,19 @@ git merge upstream/release/1.16.0
 <!-- https://kasmweb.com/docs/latest/how_to/gpu.html -->
 
 ```bash
+# 在主机上执行
+chmod 666 /dev/dri/card0
+chmod 666 /dev/dri/renderD128
+
+# 为容器增加环境变量
+# 将/dev/input挂载给容器
+- name: KASM_EGL_CARD
+  value: /dev/dri/card0
+- name: KASM_RENDERD
+  value: /dev/dri/renderD128
+```
+
+```bash
 # kasmweb/debian-bookworm-desktop:1.16.0
 docker pull kasmweb/debian-bookworm-desktop:1.16.0 && \
 docker tag kasmweb/debian-bookworm-desktop:1.16.0 registry.cn-qingdao.aliyuncs.com/wod/kasmweb:debian-bookworm-desktop-1.16.0 && \
