@@ -62,5 +62,7 @@ ENV HOME /home/code
 WORKDIR $HOME
 USER 1000
 
+ENV DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+
 CMD ["--tail-log"]
 
