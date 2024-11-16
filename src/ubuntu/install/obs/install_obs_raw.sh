@@ -22,6 +22,6 @@ fi
 cp /usr/share/applications/com.obsproject.Studio.desktop $HOME/Desktop/
 chmod +x $HOME/Desktop/com.obsproject.Studio.desktop
 
-curl -fL https://cache.ali.wodcloud.com/vscode/kasm/obs/obs-v4l2sink-0.1.0.deb >./obs-v4l2sink.deb
+curl -fL https://github.com/CatxFish/obs-v4l2sink/releases/download/0.1.0/obs-v4l2sink.deb >./obs-v4l2sink.deb
 apt-get install ./obs-v4l2sink.deb
 rm -f obs-v4l2sink.deb

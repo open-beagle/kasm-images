@@ -42,7 +42,7 @@ else
   if [ ! -z "${CHROME_VERSION}" ]; then
     curl -fL https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb >chrome.deb
   else
-    curl -fL https://cache.ali.wodcloud.com/vscode/kasm/chrome/google-chrome-stable_current_amd64.deb >chrome.deb
+    curl -fL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb >chrome.deb
   fi
   apt-get install -y ./chrome.deb
   rm chrome.deb
