@@ -20,8 +20,8 @@ git merge upstream/release/1.16.0
 
 ```bash
 # 在主机上执行
-chmod 666 /dev/dri/card0
-chmod 666 /dev/dri/renderD128
+chmod 666 /dev/dri/*
+chmod 666 /dev/nvidia*
 
 # 为容器增加环境变量
 # 将/dev/input挂载给容器
@@ -56,6 +56,11 @@ docker push registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-1.
 docker pull --platform=linux/arm64 kasmweb/core-debian-bookworm:1.16.0 && \
 docker tag kasmweb/core-debian-bookworm:1.16.0 registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-1.16.0-arm64 && \
 docker push registry.cn-qingdao.aliyuncs.com/wod/kasmweb:core-debian-bookworm-1.16.0-arm64
+
+# kasmweb/ubuntu-focal-desktop
+docker pull kasmweb/ubuntu-focal-desktop:1.16.0 && \
+docker tag kasmweb/ubuntu-focal-desktop:1.16.0 registry.cn-qingdao.aliyuncs.com/wod/kasmweb:ubuntu-focal-desktop-1.16.0 && \
+docker push registry.cn-qingdao.aliyuncs.com/wod/kasmweb:ubuntu-focal-desktop-1.16.0
 ```
 
 ## build
