@@ -1,5 +1,5 @@
 kind: pipeline
-name: docker
+name: 1.16-debian
 
 trigger:
   branch:
@@ -80,6 +80,61 @@ steps:
       username:
         from_secret: REGISTRY_USER_ALIYUN
       password:
+        from_secret: REGISTRY_PASSWORD_ALIYUN
+
+---
+kind: pipeline
+name: 1.16-ubuntu
+
+trigger:
+  branch:
+    - 1.16-ubuntu
+
+workspace:
+  path: /go/src/github.com/open-beagle/kasm-images
+
+volumes:
+  - name: docker
+    host:
+      path: /var/run/docker.sock
+
+clone:
+  disable: true
+
+steps:
+  - name: s3-cache
+    image: registry-vpc.cn-qingdao.aliyuncs.com/wod/devops-s3-cache:1.0
+    settings:
+      restore: true
+      mount:
+        - ./.git
+      endpoint: https://cache.ali.wodcloud.com
+      access_key:
+        from_secret: S3_ACCESS_KEY_ALIYUN
+      secret_key:
+        from_secret: S3_SECRET_KEY_ALIYUN
+
+  - name: fetch
+    image: registry-vpc.cn-qingdao.aliyuncs.com/wod/devops-git:1.0
+    settings:
+      proxy:
+        from_secret: SOCKS5_PROXY
+
+  - name: docker-ubuntu-jammy
+    image: registry-vpc.cn-qingdao.aliyuncs.com/wod/devops-docker:1.0
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    settings:
+      dockerfile: .beagle/kasm-ubuntu-jammy-desktop.dockerfile
+      base: registry-vpc.cn-qingdao.aliyuncs.com/wod/kasmweb:core-ubuntu-jammy-v1.16.0
+      repo: wod/kasmweb
+      version: ubuntu-jammy-desktop.-v1.16.0
+      args: "TARGETOS=linux,TARGETARCH=amd64"
+      registry: registry-vpc.cn-qingdao.aliyuncs.com
+      registry_user:
+        from_secret: REGISTRY_USER_ALIYUN
+      registry_password:
         from_secret: REGISTRY_PASSWORD_ALIYUN
 
 ---

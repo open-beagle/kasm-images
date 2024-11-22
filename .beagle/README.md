@@ -22,6 +22,18 @@ git merge upstream/release/1.16.0
 # 在主机上执行
 chmod 666 /dev/dri/*
 chmod 666 /dev/nvidia*
+chmod 666 /dev/input/*
+
+# blacklist kernel modules that might interfere
+cat << EOF | sudo tee --append /etc/modprobe.d/blacklist.conf
+blacklist vga16fb
+blacklist nouveau
+blacklist rivafb
+blacklist nvidiafb
+blacklist rivatv
+EOF
+echo 'GRUB_CMDLINE_LINUX="rdblacklist=nouveau"' | sudo tee --append /etc/default/grub
+sudo update-grub
 
 # 为容器增加环境变量
 # 将/dev/input挂载给容器
