@@ -129,7 +129,7 @@ steps:
       dockerfile: .beagle/kasm-ubuntu-jammy-desktop.dockerfile
       base: registry-vpc.cn-qingdao.aliyuncs.com/wod/kasmweb:core-ubuntu-jammy-v1.16.0
       repo: wod/kasmweb
-      version: ubuntu-jammy-desktop.-v1.16.0
+      version: ubuntu-jammy-desktop-v1.16.0
       args: "TARGETOS=linux,TARGETARCH=amd64"
       registry: registry-vpc.cn-qingdao.aliyuncs.com
       registry_user:
