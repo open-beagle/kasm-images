@@ -4,6 +4,7 @@ set -ex
 # Install Retroarch
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 add-apt-repository -y ppa:libretro/stable
+sed -i 's/ppa.launchpadcontent.net/launchpad.proxy.ustclug.org/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
 apt-get update
 apt-get install -y retroarch unzip retroarch-assets libretro-core-info
 

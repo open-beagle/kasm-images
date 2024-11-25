@@ -22,6 +22,7 @@ elif grep -q "ID=debian" /etc/os-release; then
 else
   apt-get install -y software-properties-common
   add-apt-repository -y ppa:nextcloud-devs/client
+  sed -i 's/ppa.launchpadcontent.net/launchpad.proxy.ustclug.org/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
   apt update
   apt install -y nextcloud-client
   if [ -z ${SKIP_CLEAN+x} ]; then

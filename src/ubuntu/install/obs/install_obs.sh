@@ -15,6 +15,7 @@ else
   apt-get update
   apt-get install -y mesa-utils libglu1-mesa-dev freeglut3-dev mesa-common-dev
   add-apt-repository -y ppa:obsproject/obs-studio
+  sed -i 's/ppa.launchpadcontent.net/launchpad.proxy.ustclug.org/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
   apt-get update
   apt-get install -y obs-studio
 fi

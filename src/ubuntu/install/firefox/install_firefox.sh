@@ -20,6 +20,7 @@ elif [ "${DISTRO}" == "opensuse" ]; then
 elif grep -q Jammy /etc/os-release || grep -q Noble /etc/os-release; then
   if [ ! -f '/etc/apt/preferences.d/mozilla-firefox' ]; then
     add-apt-repository -y ppa:mozillateam/ppa
+    sed -i 's/ppa.launchpadcontent.net/launchpad.proxy.ustclug.org/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
     echo '
 Package: *
 Pin: release o=LP-PPA-mozillateam

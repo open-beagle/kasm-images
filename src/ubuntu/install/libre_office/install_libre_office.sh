@@ -5,6 +5,7 @@ set -ex
 apt-get update
 apt-get install -y software-properties-common
 add-apt-repository ppa:libreoffice/ppa
+sed -i 's/ppa.launchpadcontent.net/launchpad.proxy.ustclug.org/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
 apt-get update
 apt-get install -y libreoffice
 
