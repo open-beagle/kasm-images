@@ -127,8 +127,8 @@ steps:
         path: /var/run/docker.sock
     settings:
       dockerfile: .beagle/kasm-ubuntu-jammy-desktop.dockerfile
-      base: registry-vpc.cn-qingdao.aliyuncs.com/wod/kasmweb:core-ubuntu-jammy-v1.16.0
-      repo: wod/kasmweb
+      base: registry-vpc.cn-qingdao.aliyuncs.com/wod/beagle-wind-vnc:core-ubuntu-jammy-v1.16.0
+      repo: wod/beagle-wind-vnc
       version: ubuntu-jammy-desktop-v1.16.0
       args: "TARGETOS=linux,TARGETARCH=amd64"
       registry: registry-vpc.cn-qingdao.aliyuncs.com
