@@ -46,6 +46,7 @@ else
   fi
   apt-get install -y ./chrome.deb
   rm chrome.deb
+  rm -rf /etc/apt/sources.list.d/google-chrome.list
   if [ -z ${SKIP_CLEAN+x} ]; then
     apt-get autoclean
     rm -rf \
