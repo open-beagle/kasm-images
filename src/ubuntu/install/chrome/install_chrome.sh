@@ -2,7 +2,7 @@
 set -ex
 
 CHROME_ARGS="--password-store=basic --no-sandbox --ignore-gpu-blocklist --user-data-dir --no-first-run --disable-search-engine-choice-screen --simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT'"
-CHROME_VERSION=$1
+CHROME_VERSION="111.0.5563.146-1"
 
 ARCH=$(arch | sed 's/aarch64/arm64/g' | sed 's/x86_64/amd64/g')
 if [ "$ARCH" == "arm64" ]; then
@@ -40,7 +40,7 @@ elif [ "${DISTRO}" == "opensuse" ]; then
 else
   apt-get update
   if [ ! -z "${CHROME_VERSION}" ]; then
-    curl -fL https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb >chrome.deb
+    curl -fL https://cache.ali.wodcloud.com/vscode/kasm/chrome/google-chrome-stable_${CHROME_VERSION}_amd64.deb >chrome.deb
   else
     curl -fL https://cache.ali.wodcloud.com/vscode/kasm/chrome/google-chrome-stable_current_amd64.deb >chrome.deb
   fi
