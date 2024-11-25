@@ -33,6 +33,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
   /ubuntu/install/gamepad_utils/install_gamepad_utils.sh \
   /ubuntu/install/cleanup/cleanup.sh"
 
+RUN sed -i 's/ppa.launchpadcontent.net/launchpad.proxy.ustclug.org/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
+
 # Copy install scripts
 COPY ./src/ $INST_DIR
 
