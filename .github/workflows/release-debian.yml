@@ -42,7 +42,7 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            ghcr.io/${{ github.repository }}:${{ env.BUILD_VERSION }}-debian12-amd64
+            ghcr.io/${{ github.repository }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-amd64
             registry.cn-qingdao.aliyuncs.com/wod/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-amd64
           build-args: |
             BASE=ghcr.io/${{ github.repository_owner }}/kasm-core:${{ env.BUILD_VERSION }}-debian12-amd64
