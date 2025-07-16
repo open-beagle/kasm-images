@@ -42,10 +42,10 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            ghcr.io/${{ github.repository }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj-amd64
+            ghcr.io/${{ github.repository }}:${{ env.BUILD_VERSION }}-debian12-wsjj-amd64
             registry.cn-qingdao.aliyuncs.com/wod/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj-amd64
           build-args: |
-            BASE=ghcr.io/${{ github.repository_owner }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-amd64
+            BASE=ghcr.io/${{ github.repository_owner }}/kasm-images:${{ env.BUILD_VERSION }}-debian12-amd64
             TARGETOS=linux
             TARGETARCH=amd64
           provenance: false
@@ -59,10 +59,10 @@ jobs:
           push: true
           platforms: linux/arm64
           tags: |
-            ghcr.io/${{ github.repository }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj-arm64
+            ghcr.io/${{ github.repository }}:${{ env.BUILD_VERSION }}-debian12-wsjj-arm64
             registry.cn-qingdao.aliyuncs.com/wod/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj-arm64
           build-args: |
-            BASE=ghcr.io/${{ github.repository_owner }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-arm64
+            BASE=ghcr.io/${{ github.repository_owner }}/kasm-images:${{ env.BUILD_VERSION }}-debian12-arm64
             TARGETOS=linux
             TARGETARCH=arm64
           provenance: false
@@ -70,10 +70,10 @@ jobs:
 
       - name: Create and push multi-arch manifest
         run: |
-          docker manifest create ghcr.io/${{ github.repository }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj \
-            ghcr.io/${{ github.repository }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian1-wsjj2-amd64 \
-            ghcr.io/${{ github.repository }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj-arm64
-          docker manifest push ghcr.io/${{ github.repository }}/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj
+          docker manifest create ghcr.io/${{ github.repository }}:${{ env.BUILD_VERSION }}-debian12-wsjj \
+            ghcr.io/${{ github.repository }}:${{ env.BUILD_VERSION }}-debian1-wsjj2-amd64 \
+            ghcr.io/${{ github.repository }}:${{ env.BUILD_VERSION }}-debian12-wsjj-arm64
+          docker manifest push ghcr.io/${{ github.repository }}:${{ env.BUILD_VERSION }}-debian12-wsjj
 
           docker manifest create registry.cn-qingdao.aliyuncs.com/wod/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj \
             registry.cn-qingdao.aliyuncs.com/wod/bdwind-vnc:${{ env.BUILD_VERSION }}-debian12-wsjj-amd64 \
